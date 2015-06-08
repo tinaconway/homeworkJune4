@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="main.css" media="screen" title="no title" charset="utf-8">
+  <title>Photo Album</title>
+
+  <script type="html/template" id="albumTemplate">
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail view">
+  <a href="#" class = "picView" rel = <%= rel %> ><img src= <%= url %>></a>
+    </div>
+  </div>
+
+  </script>
+
+  <script type="html/template" id="pictureTemplate">
+
+  <div class = "viewer">
+  <img src=<%= url %> >
+  </div>
+
+  </script>
+
+
+
+
+</head>
+<body>
+<div class = "container">
+
+<div class = "page main active">
+
+  <div class="page-header">
+    <h1>My Albums</h1>
+  </div>
+
+<!-- MAIN PAGE -->
+
+  <!-- ROW  1 -->
+
+
+
+  <div class="row thumb">
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="https://scontent.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10475454_809037545780800_8975036078192361478_n.jpg?oh=23b1bf4f2df3885839e65813bc3b86d2&oe=55EFA30E" alt="">
+        <div class="caption">
+          <a href="#" rel = ".family" id="family" class="btn btn-primary" role="button"><h4>Family</h4></a>
+        </div>
+        </div>
+      </div>
+
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="https://scontent.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1184751_10200613083069341_1191840005_n.jpg?oh=a1ec89897b5416a6ebf240de533b52c1&oe=5605B9AB" alt="">
+        <div class="caption">
+          <a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button"><h4>Friends</h4></a>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="https://scontent.xx.fbcdn.net/hphotos-xpa1/t31.0-8/10900073_934874013190000_6494818949321692237_o.jpg" alt="">
+        <div class="caption">
+          <a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button"><h4>Baltimore</h4></a>
+        </div>
+        </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="row thumb">
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="https://scontent.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10426260_10203720316788242_5564556673690469793_n.jpg?oh=c08adb100b7a56cd96e0691288090861&oe=55E862E1" alt="">
+        <div class="caption">
+          <a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button"><h4>Charleston</h4></a>
+        </div>
+        </div>
+    </div>
+
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="https://scontent.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/1391715_10200884279849091_1229634115_n.jpg?oh=8fb7e3f3d8debf7aac7a4e520cacc690&oe=5602CE92" alt="">
+      <div class="caption">
+        <a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button"><h4>Hawaii</h4></a>
+      </div>
+      </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="https://scontent.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10469218_10152370726472740_597679874662103981_n.jpg?oh=34abdfc565a1d2051c281064786ab564&oe=5600FD99" alt="">
+      <div class="caption">
+        <a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button"><h4>Firefly Music Festival</h4></a>
+      </div>
+      </div>
+  </div>
+
+  </div>
+</div>
+
+
+<!-- ALBUM PAGES-->
+
+<!-- FAMILY -->
+<div class = "page family">
+  <div class="page-header">
+    <h1>Family</h1>
+  </div>
+  <div class = "wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class= "wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+</div>
+</div>
+
+
+<!-- FRIENDS -->
+<div class = "page friends">
+  <div class="page-header">
+    <h1>Friends</h1>
+  </div>
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+
+
+    </div>
+  </div>
+
+  <div class="wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+<!-- FIREFLY-->
+<div class = "page firefly">
+  <div class="page-header">
+    <h1>Firefly Music Festival</h1>
+  </div>
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+
+
+    </div>
+  </div>
+
+  <div class="wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+<!-- CHARLESTON -->
+<div class = "page charleston">
+  <div class="page-header">
+    <h1>Charleston</h1>
+  </div>
+
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+<!-- HAWAII -->
+<div class = "page hawaii">
+  <div class="page-header">
+    <h1>Hawaii</h1>
+  </div>
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+
+
+    </div>
+  </div>
+
+  <div class="wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+<!-- BALTIMORE -->
+<div class = "page baltimore">
+  <div class="page-header">
+    <h1>Baltimore</h1>
+  </div>
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Family</a></li>
+        <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Friends</a></li>
+        <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Baltimore</a></li>
+        <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Charleston</a></li>
+        <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Hawaii</a></li>
+        <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Firefly</a></li>
+      </ul>
+
+
+    </div>
+  </div>
+
+  <div class="wrapperRight">
+
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+
+<!--PICTURE VIEW -->
+
+  <!--FAMILY -->
+
+<div class = "page familyPic">
+  <div class="page-header">
+    <h1>Family</h1>
+  </div>
+  <div class ="wrapperLeft">
+    <div class = ".col-md-3" id="wrap">
+      <ul class = "albumNav">
+        <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+        <li class = "caption"><a href="#" rel = ".family" id="family" class="btn btn-primary" role="button">Back to Album</a></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="wrapperRight">
+  <div class = "row thumb">
+    <div class = "content"></div>
+  </div>
+
+</div>
+</div>
+
+
+<!--FRIENDS-->
+
+<div class = "page friendsPic">
+<div class="page-header">
+  <h1>Friends</h1>
+</div>
+<div class ="wrapperLeft">
+  <div class = ".col-md-3" id="wrap">
+    <ul class = "albumNav">
+      <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+      <li class = "caption"><a href="#" rel = ".friends" id="friends" class="btn btn-primary" role="button">Back to Album</a></li>
+    </ul>
+
+  </div>
+</div>
+<div class="wrapperRight">
+<div class = "row thumb">
+  <div class = "content"></div>
+</div>
+
+</div>
+</div>
+
+<!--BALTIMORE -->
+
+<div class = "page baltimorePic">
+<div class="page-header">
+  <h1>Baltimore</h1>
+</div>
+<div class ="wrapperLeft">
+  <div class = ".col-md-3" id="wrap">
+    <ul class = "albumNav">
+      <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+      <li class = "caption"><a href="#" rel = ".baltimore" id="baltimore" class="btn btn-primary" role="button">Back to Album</a></li>
+    </ul>
+
+  </div>
+</div>
+<div class="wrapperRight">
+<div class = "row thumb">
+  <div class = "content"></div>
+</div>
+
+</div>
+</div>
+
+<!--CHARLESTON -->
+
+<div class = "page charlestonPic">
+<div class="page-header">
+  <h1>Charleston</h1>
+</div>
+<div class ="wrapperLeft">
+  <div class = ".col-md-3" id="wrap">
+    <ul class = "albumNav">
+      <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+      <li class = "caption"><a href="#" rel = ".charleston" id="charleston" class="btn btn-primary" role="button">Back to Album</a></li>
+    </ul>
+
+  </div>
+</div>
+<div class="wrapperRight">
+<div class = "row thumb">
+  <div class = "content"></div>
+</div>
+
+</div>
+</div>
+
+<!--HAWAII -->
+
+<div class = "page hawaiiPic">
+<div class="page-header">
+  <h1>Hawaii</h1>
+</div>
+<div class ="wrapperLeft">
+  <div class = ".col-md-3" id="wrap">
+    <ul class = "albumNav">
+      <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+      <li class = "caption"><a href="#" rel = ".hawaii" id="hawaii" class="btn btn-primary" role="button">Back to Album</a></li>
+    </ul>
+
+  </div>
+</div>
+<div class="wrapperRight">
+<div class = "row thumb">
+  <div class = "content"></div>
+</div>
+
+</div>
+</div>
+
+<!--FIREFLY -->
+
+<div class = "page fireflyPic">
+<div class="page-header">
+  <h1>Firefly</h1>
+</div>
+<div class ="wrapperLeft">
+  <div class = ".col-md-3" id="wrap">
+    <ul class = "albumNav">
+      <li class = "caption"><a href="#" rel = ".main" id="main" class="btn btn-primary" role="button">Home</a></li>
+      <li class = "caption"><a href="#" rel = ".firefly" id="firefly" class="btn btn-primary" role="button">Back to Album</a></li>
+    </ul>
+
+  </div>
+</div>
+<div class="wrapperRight">
+<div class = "row thumb">
+  <div class = "content"></div>
+</div>
+
+</div>
+</div>
+
+
+  <script type="text/javascript" src="bower_components/underscore/underscore.js"> </script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"> </script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="photo-album.js"></script>
+
+
+
+</body>
+
+
+
+
+</html>
