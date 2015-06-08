@@ -1,5 +1,7 @@
 // DATA //
 
+
+
 var family = [
   {
     url: "https://scontent.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10475454_809037545780800_8975036078192361478_n.jpg?oh=23b1bf4f2df3885839e65813bc3b86d2&oe=55EFA30E",
@@ -270,3 +272,30 @@ var hawaii = [
     rel: ".hawaiiPic"
   }
 ];
+
+var data = [
+  {
+   name: 'family',
+   value: family
+  },
+  {
+  name: 'baltimore',
+  value: baltimore
+  },
+  {
+   name: 'friends',
+   value: friends
+  },
+  {
+    name: 'firefly',
+    value: firefly
+  },
+  {
+     name: 'charleston',
+     value: charleston
+  },
+  {
+      name: 'hawaii',
+      value: hawaii
+  }
+]

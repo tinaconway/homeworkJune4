@@ -1,217 +1,62 @@
 $(document).ready(function() {
+  page.init();
+});
 
-
-
-// 1.load the _.template with the template string
+// 1.load the _.template with the template string //
 var compiledTmpl = _.template($('#albumTemplate').html());
 var tmplString = "";
 
 var compiledImg = _.template($('#pictureTemplate').html());
 
+var page = {
+  init: function (arguments) {
+    page.initEvents();
+  },
 
+  initEvents: function (arguments) {
+    // displaying and hiding different pages by clicking the navigation //
+    $('.caption').on('click', 'a', function (event) {
+      event.preventDefault();
+      var clickedPage = $(this).attr('rel');
+      $(clickedPage).siblings().removeClass('active');
+      $(clickedPage).addClass('active');
+    });
+    // loading ALBUM TEMPLATE //
+    $('.caption').on('click', 'a', function() {
+      event.preventDefault();
+      $('.content').html(tmplString);
+      // iterating over album data //
+      var arrayofAlbum;
+      var albumName = $(this).attr('id');
+      data.forEach(function(el) {
+        if(albumName === el.name) {
+          arrayofAlbum = el.value;
+        }
+      });
+      arrayofAlbum.forEach(function(el) {
+        tmplString += compiledTmpl(el);
+      });
+      // appending template to page //
+      $('.content').append(tmplString);
+      tmplString = "";
 
-
-// LOAD FAMILY
-$('.caption').on('click', '#family', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  family.forEach(function(el) {
-    // 2. add the data to the compiled template
-    tmplString += compiledTmpl(el);
-  });
-
-  $('.content').append(tmplString);
-  tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-});
-
-
-});
-
-
-
-//LOAD FRIENDS
-$('.caption').on('click', '#friends', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-friends.forEach(function(el) {
-  // 2. add the data to the compiled template
-  tmplString += compiledTmpl(el);
-});
-
-$('.content').append(tmplString);
-tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-});
-});
-
-
-//LOAD FIREFLY
-$('.caption').on('click', '#firefly', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-firefly.forEach(function(el) {
-  // 2. add the data to the compiled template
-  tmplString += compiledTmpl(el);
-});
-
-$('.content').append(tmplString);
-tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-});
-});
-
-
-//LOAD CHARLESTON
-$('.caption').on('click', '#charleston', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-charleston.forEach(function(el) {
-  // 2. add the data to the compiled template
-  tmplString += compiledTmpl(el);
-});
-
-$('.content').append(tmplString);
-tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-});
-});
-
-
-//LOAD HAWAII
-$('.caption').on('click', '#hawaii', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-hawaii.forEach(function(el) {
-  // 2. add the data to the compiled template
-  tmplString += compiledTmpl(el);
-});
-
-$('.content').append(tmplString);
-tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-});
-});
-
-
-
-//LOAD BALTIMORE
-$('.caption').on('click', '#baltimore', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-baltimore.forEach(function(el) {
-  // 2. add the data to the compiled template
-  tmplString += compiledTmpl(el);
-});
-$('.content').append(tmplString);
-tmplString = "";
-
-$('.picView').on('click', 'img', function() {
-  event.preventDefault();
-  $('.content').html(tmplString);
-  var url = {url: $(this).attr('src')}
-  tmplString = compiledImg(url);
-  console.log(tmplString);
-  $('.content').append(tmplString);
-  tmplString = "";
-  var clickedPage = $(this).parent().attr('rel');
-  $(clickedPage).siblings().removeClass('active');
-  $(clickedPage).addClass('active');
-
-
-});
-
-
-
-
-});
-
-
-
-
-// displaying and hiding different pages by clicking the navigation
-
-
-
-  $('.caption').on('click', 'a', function (event) {
-    event.preventDefault();
-    var clickedPage = $(this).attr('rel');
-    $(clickedPage).siblings().removeClass('active');
-    $(clickedPage).addClass('active');
-
+      // loading PICTURE VIEWER TEMPLATE //
+    $('.picView').on('click', 'img', function() {
+      event.preventDefault();
+      $('.content').html(tmplString);
+      var url = {url: $(this).attr('src')}
+      tmplString = compiledImg(url);
+      $('.content').append(tmplString);
+      tmplString = "";
+      // displaying and hiding different pages by clicking the navigation
+      var clickedPage = $(this).parent().attr('rel');
+      $(clickedPage).siblings().removeClass('active');
+      $(clickedPage).addClass('active');
+    });
 
 
   });
 
 
-
-
-
-
-
-
-
-
-
-
-});
+  }
+};
